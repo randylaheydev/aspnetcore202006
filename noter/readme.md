@@ -895,7 +895,7 @@ namespace a300_controllers.Controllers
 
 # Rute
 
-![](https://raw.githubusercontent.com/devcronberg/aspnetcore_201909/master/noter/mvc.png)
+![](http://cdn.cronberg.dk/kurser/webapp/webdev.png)
 
 ## Forskellige måder at styre rute definition
 
@@ -1078,6 +1078,8 @@ https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcor
 Attributter kan også placeres på controller-klassen.
 
 # View-lag
+
+![](http://cdn.cronberg.dk/kurser/webapp/webdev.png)
 
 ## Views
 
