@@ -1,0 +1,36 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+@model demoweb.Models.ViewModels.AppIndexViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/lib/semantic-ui/semantic.css" rel="stylesheet" />
+    <link asp-append-version="true" href="~/Style/style.css" rel="stylesheet" />
+</head>
+<body>
+    <h1 class="ui header">Tes1111sst</h1>
+    <p>lkdjfhg lksdjfhg lk</p>
+    <h2>@ViewBag.dato</h2>
+    <ul>
+        @foreach (var item in Model.Personer)
+        {
+            <li>@item.Name @item.Height</li>
+        }
+    </ul>
+    <h4>@Model.Faktura.Id</h4>
+    <div class="ui vertical animated button" tabindex="0">
+        <div class="hidden content">Shop</div>
+        <div class="visible content">
+            <i class="shop icon"></i>
+        </div>
+    </div>
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script asp-append-version="true" src="~/script/app.js"></script>
+</body>
+</html>

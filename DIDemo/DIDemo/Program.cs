@@ -5,6 +5,7 @@ namespace DIDemo
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
             Terning t = new Terning(new TilfældighedsGeneratorRandomOrg());
