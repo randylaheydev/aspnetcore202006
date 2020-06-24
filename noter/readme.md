@@ -1,4 +1,4 @@
-# Grundlæggende ASP.NET Core
+# Grundlæggende ASP.NET Core MVC
 
 Noter sidst rettet d. 24. juni 2020<!-- { templatetype:'function', namespace:'Cronberg.TemplateApp.Core', methodname: 'Now', arguments:'D;da' } --> af Michell Cronberg.
 
