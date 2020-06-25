@@ -404,7 +404,7 @@ namespace MCronberg.Models.Validering
 ## Entity Framework
 
 - Oplagt data/modellag
-- Kom nemt igang med [SQLite](https://github.com/devcronberg/aspnetcore21_sqlite_ef)
+- Kom nemt igang med [SQLite](https://github.com/devcronberg/undervisning-db-sqlite)
   - [DB Browser for SQLite](https://sqlitebrowser.org/)
 
 ## Repository-pattern
