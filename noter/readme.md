@@ -471,7 +471,29 @@ services.AddTransient<IRepository>((i) =>
 
 - en controller kan indeholde async action metoder
   - [Super god forklaring på hvorfor man (ikke) burde bruge det](https://stackoverflow.com/a/48023725)
-  
+
+```csharp
+[Route("api/syncvasync")]
+public class SyncVAsyncController : Controller
+{
+    [HttpGet("sync")]
+    public IActionResult SyncGet()
+    {
+        Task.Delay(200).Wait();
+
+        return Ok(new { });
+    }
+
+    [HttpGet("async")]
+    public async Task<IActionResult> AsyncGet()
+    {
+        await Task.Delay(200);
+
+        return Ok(new { });
+    }
+}
+```
+
 - en controller er en alm. klasse der nemt kan testes
 
 ```csharp
