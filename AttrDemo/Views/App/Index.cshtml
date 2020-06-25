@@ -1,0 +1,62 @@
+﻿@model attrdemo.Models.Person
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <h4>Person</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Index">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Navn" class="control-label"></label>
+                    <input asp-for="Navn" class="form-control" />
+                    <span asp-validation-for="Navn" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Alder" class="control-label"></label>
+                    <input asp-for="Alder" class="form-control" />
+                    <span asp-validation-for="Alder" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="ErSmart" /> @Html.DisplayNameFor(model => model.ErSmart)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input type="button" value="Save" id="btn" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script>
+
+
+
+        $("#btn").click(async function () {
+            //// dkfj lkdfjg
+            //$.post("/", { alder: $("#Alder").val() });
+            let r = await $.post("/validate", { txt: "sss" });
+            console.log(r);
+
+        });
+    </script>
+
+    @*<script src="~/lib/jquery/jquery.js"></script>
+        <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>*@
+
+</body>
+</html>

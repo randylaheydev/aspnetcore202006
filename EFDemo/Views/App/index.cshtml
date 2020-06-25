@@ -1,0 +1,26 @@
+﻿@model List<SQLiteEF.Person>
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link asp-append-version="true" rel="stylesheet" href="~/style/style.css">
+</head>
+<body>    
+    <ul>@foreach (var item in Model)
+        {
+            <li>@item.LastName @item.PersonId</li>
+        }
+    </ul>
+
+
+
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script asp-append-version="true" src="~/script/app.js"></script>
+</body>
+</html>

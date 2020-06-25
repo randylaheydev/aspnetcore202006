@@ -1,0 +1,31 @@
+﻿@model dynamic
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Index</title>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    @DateTime.Now.ToLongTimeString()
+    <hr />
+    @ViewBag.klokken
+    <hr />
+    @Model.navn
+
+    <ul id="liste">
+    </ul>
+    <hr />
+    <div id="app">
+        <ul>
+            <li v-for="item in data">{{ item.name }}</li>
+        </ul>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/script/index.js"></script>
+</body>
+</html>

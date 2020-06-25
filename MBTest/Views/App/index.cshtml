@@ -1,0 +1,30 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link asp-append-version="true" rel="stylesheet" href="~/style/style.css">
+</head>
+<body>
+    <h1>Index</h1>
+
+    <div>@DateTime.Now.ToLongTimeString()</div>
+    <form action="/" method="post">
+
+        <input type="text" name="Navn" />
+        <input type="text" name="Id" />
+        <input type="submit" value="Send data" />
+
+    </form>
+
+
+
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script asp-append-version="true" src="~/script/app.js"></script>
+</body>
+</html>
