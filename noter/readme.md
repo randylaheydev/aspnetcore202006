@@ -404,7 +404,7 @@ namespace MCronberg.Models.Validering
 ## Entity Framework
 
 - Oplagt data/modellag
-- Kom nemt igang med [SQLite](https://github.com/devcronberg/aspnetcore21_sqlite_ef)
+- Kom nemt igang med [SQLite](https://github.com/devcronberg/undervisning-db-sqlite)
   - [DB Browser for SQLite](https://sqlitebrowser.org/)
 
 ## Repository-pattern
@@ -471,7 +471,29 @@ services.AddTransient<IRepository>((i) =>
 
 - en controller kan indeholde async action metoder
   - [Super god forklaring på hvorfor man (ikke) burde bruge det](https://stackoverflow.com/a/48023725)
-  
+
+```csharp
+[Route("api/syncvasync")]
+public class SyncVAsyncController : Controller
+{
+    [HttpGet("sync")]
+    public IActionResult SyncGet()
+    {
+        Task.Delay(200).Wait();
+
+        return Ok(new { });
+    }
+
+    [HttpGet("async")]
+    public async Task<IActionResult> AsyncGet()
+    {
+        await Task.Delay(200);
+
+        return Ok(new { });
+    }
+}
+```
+
 - en controller er en alm. klasse der nemt kan testes
 
 ```csharp
@@ -641,6 +663,9 @@ public IActionResult ViewbagDemo()
   - [FromServices]
   - [FromBody]
   - [ModelBinder]
+
+[Vue-eksempler](https://github.com/devcronberg/vue-start-browser)
+
 
 ### Demo af modelbinding
 
