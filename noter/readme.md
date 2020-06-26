@@ -1,6 +1,6 @@
-# Grundlæggende ASP.NET Core MVC
+# Grundlæggende ASP.NET Core
 
-Noter sidst rettet d. 24. juni 2020<!-- { templatetype:'function', namespace:'Cronberg.TemplateApp.Core', methodname: 'Now', arguments:'D;da' } --> af Michell Cronberg.
+Noter sidst rettet d. 26. juni 2020<!-- { templatetype:'function', namespace:'Cronberg.TemplateApp.Core', methodname: 'Now', arguments:'D;da' } --> af Michell Cronberg.
 
 ---
 
@@ -469,32 +469,10 @@ services.AddTransient<IRepository>((i) =>
   - [AutoValidateAntiforgeryToken]
   - [RequireHttps]
 
+- en controller er en alm. klasse der nemt kan testes
+
 - en controller kan indeholde async action metoder
   - [Super god forklaring på hvorfor man (ikke) burde bruge det](https://stackoverflow.com/a/48023725)
-
-```csharp
-[Route("api/syncvasync")]
-public class SyncVAsyncController : Controller
-{
-    [HttpGet("sync")]
-    public IActionResult SyncGet()
-    {
-        Task.Delay(200).Wait();
-
-        return Ok(new { });
-    }
-
-    [HttpGet("async")]
-    public async Task<IActionResult> AsyncGet()
-    {
-        await Task.Delay(200);
-
-        return Ok(new { });
-    }
-}
-```
-
-- en controller er en alm. klasse der nemt kan testes
 
 ```csharp
 using System;
@@ -663,9 +641,6 @@ public IActionResult ViewbagDemo()
   - [FromServices]
   - [FromBody]
   - [ModelBinder]
-
-[Vue-eksempler](https://github.com/devcronberg/vue-start-browser)
-
 
 ### Demo af modelbinding
 
@@ -1003,7 +978,7 @@ app.UseMvc(routes =>
 });
 ```
 
-- nu virer /Index/1/a/b/2 og q kan benyttes ved modelbindig
+- nu virker /Index/1/a/b/2 og q kan benyttes ved modelbindig
 
 - Bemærk, at rækkefølge er vigtig!!
 
@@ -1094,7 +1069,7 @@ Mange muligheder
 
 Se de mange constraints på 
 
-https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcore-2.2#route-constraint-reference
+https://devblogs.microsoft.com/aspnet/attribute-routing-in-asp-net-mvc-5/#route-constraints
 
 ```csharp
 [HttpGet("[action]/{aar:range(2000,2020)}/{mdr:range(1,12)}")]
@@ -1403,11 +1378,12 @@ public class PersonTagHelper : TagHelper
   - sidebar
   - lister af data
 - består af et view og en klasse
-  - egner sig bedre til kode en partial
+  - egner sig bedre til kode end partial
 - skal placeres i /Shared/Components/[Navn]/default.cshtml 
 - kan benyttes gennem 
   - Component.InvokeAsync
   - taghelper (vc)
+    - Husk @addTagHelper *, MyWebApp
 
 ```csharp
 public class PersonerViewComponent : ViewComponent {
