@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mit website</title>
+    <link href="~/style/style.css" rel="stylesheet" />
+    @RenderSection("styles", false)
+</head>
+<body>
+
+    <h1>Mit website</h1>
+    <hr />
+        @RenderBody()
+    <hr />
+    <p>Min footer</p>
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/script/app.js"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>

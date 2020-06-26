@@ -1,0 +1,28 @@
+﻿@model Person
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Data</title>
+</head>
+<body>
+    <form action="/Data" method="post">
+        <input asp-for="Navn" />
+        <input type="text" name="navn" id="navn" value="@Model.Navn" />
+        <input type="number" name="alder" id="alder" value="@Model.Alder" />
+        <input type="submit" name="btn" value="Klik" />
+
+        @*<select>
+            @foreach (var item in lande)
+            {
+                <option (@item.id=="3"?"selected":"") value="@item.landeid" >@item.Navn</option>
+            }
+        </select>*@
+    </form>
+</body>
+</html>

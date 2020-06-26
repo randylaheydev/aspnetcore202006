@@ -1,0 +1,60 @@
+﻿@model List<MCronberg.Person>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link asp-append-version="true" rel="stylesheet" href="~/style/style.css">
+
+    <link href="~/lib/semantic-ui/semantic.css" rel="stylesheet" />
+    <style>
+        .rød {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <h1>@Model.Count()</h1>
+
+    <ul>
+        @*@foreach (var item in Model.OrderBy((MCronberg.Person i) => { return i.LastName; }))*@
+        @foreach (var item in Model.OrderBy(i => i.LastName))
+        {
+            <li>@item.FirstName @item.LastName</li>
+        }
+    </ul>
+    <hr />
+
+    <table class="ui celled compact table">
+        <thead>
+            <tr>
+                <th>Navn</th>
+                <th>Højde</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class='@(item.Height<180?"rød":"")'>
+                    <td>@item.FirstName @item.LastName</td>
+                    <td>@item.Height</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/semantic-ui/semantic.js"></script>
+    <script asp-append-version="true" src="~/script/app.js"></script>
+    <script>
+        $('table').tablesort()
+    </script>
+
+</body>
+</html>

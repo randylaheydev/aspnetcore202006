@@ -1,0 +1,83 @@
+﻿@model MCronberg.Person
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link asp-append-version="true" rel="stylesheet" href="~/style/style.css">
+</head>
+<body>
+    
+    
+
+    <hr/>
+    @await Component.InvokeAsync("Personer", new { antal = 10 })
+
+    <vc:personer antal="5"></vc:personer>
+
+
+
+    <h1>Index</h1>
+
+
+
+    @*@Html.Partial("Liste1")*@
+    <partial name="liste1" />
+
+    @{
+        List<SelectListItem> lande = new List<SelectListItem>() {
+    new SelectListItem() { Text = "Danmark", Value = "DK" },
+    new SelectListItem() { Text = "Sverige", Value = "SE" },
+    new SelectListItem() { Text = "Norge", Value = "NO" }
+
+        };
+        Model.LastName = "SE";
+
+
+    }
+
+    <tid></tid>
+    <person person-model="Model"></person>
+    <select asp-for="LastName" asp-items="lande"></select>
+
+    <form asp-controller="App" asp-action="Salg" method="post">
+        <!-- Input and Submit elements -->
+    </form>
+
+    <cache expires-after="@TimeSpan.FromSeconds(5)">
+
+        @DateTime.Now
+
+
+    </cache>
+
+    <hr />
+
+    <div>@Model.LastName</div>
+
+    @Html.ActionLink("Salg...", "salg", "app", new { år = 2020 })
+    <form action="/" method="post">
+    </form>
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @*@Html.DisplayTextFor(i=>i.LastName)
+            @Html.LabelFor(i=>i.IsHealthy)
+            @Html.EditorFor(i=>i.IsHealthy)*@
+
+        @Html.EditorForModel()
+
+        @Html.DropDownListFor(m => m.Gender, Html.GetEnumSelectList(typeof(MCronberg.Gender)))
+
+    }
+
+
+    <script asp-append-version="true" src="~/lib/jquery/jquery.js"></script>
+    <script asp-append-version="true" src="~/script/app.js"></script>
+</body>
+</html>
